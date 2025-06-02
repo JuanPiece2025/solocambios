@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoloCambiosJP - Contacto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS general para todas las páginas (considera moverlo a un archivo style.css externo) */
+        :root {
+            --primary-color: #50C9C3;
+            --secondary-color: #96DEDA;
+            --dark-text: #333;
+            --light-text: #666;
+            --white: #ffffff;
+            --light-grey: #f4f4f4;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-grey);
+            color: var(--dark-text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        nav {
+            background-color: var(--dark-text);
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2, h3 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+            position: relative;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        address {
+            font-style: normal;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        address p {
+            margin: 5px 0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--light-grey);
+            border-radius: 8px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-form button {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #40B8B2;
+        }
+
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2em; }
+            header p { font-size: 1em; }
+            nav ul { flex-direction: column; }
+            nav ul li { margin: 5px 0; }
+            .container { width: 95%; margin: 20px auto; padding: 15px; }
+            section { padding: 30px 0; }
+            h2, h3 { font-size: 1.8em; }
+        }
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.8em; }
+            header p { font-size: 0.9em; }
+            h2, h3 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SoloCambiosJP</h1>
+        <p>Tu Referencia del Dólar en Venezuela</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+            <li><a href="terminos.html">Términos y Condiciones</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Contáctanos</h2>
+            <p>¿Tienes alguna pregunta, sugerencia o necesitas reportar un problema? No dudes en contactarnos. Estamos aquí para ayudarte.</p>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="subject">Asunto:</label>
+                    <input type="text" id="subject" name="subject" required>
+
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Enviar Mensaje</button>
+                </form>
+            </div>
+            <address>
+                <p>También puedes encontrarnos en:</p>
+                <p>Email: <a href="mailto:info@solocambiosjp.com">info@solocambiosjp.com</a> (ejemplo)</p>
+                <p>Teléfono: +58 412 123 4567 (ejemplo)</p>
+                <p>Redes Sociales: Próximamente...</p>
+            </address>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 SoloCambiosJP. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
