@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoloCambiosJP - Términos y Condiciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS general para todas las páginas (considera moverlo a un archivo style.css externo) */
+        :root {
+            --primary-color: #50C9C3;
+            --secondary-color: #96DEDA;
+            --dark-text: #333;
+            --light-text: #666;
+            --white: #ffffff;
+            --light-grey: #f4f4f4;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-grey);
+            color: var(--dark-text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        nav {
+            background-color: var(--dark-text);
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2, h3 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+            position: relative;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .info-block {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: var(--light-grey);
+            border-left: 5px solid var(--primary-color);
+            border-radius: 5px;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2em; }
+            header p { font-size: 1em; }
+            nav ul { flex-direction: column; }
+            nav ul li { margin: 5px 0; }
+            .container { width: 95%; margin: 20px auto; padding: 15px; }
+            section { padding: 30px 0; }
+            h2, h3 { font-size: 1.8em; }
+        }
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.8em; }
+            header p { font-size: 0.9em; }
+            h2, h3 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SoloCambiosJP</h1>
+        <p>Tu Referencia del Dólar en Venezuela</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+            <li><a href="terminos.html">Términos y Condiciones</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Términos y Condiciones de Uso</h2>
+            <p>Bienvenido a SoloCambiosJP. Al acceder y utilizar nuestro sitio web, usted acepta los siguientes términos y condiciones. Por favor, léalos detenidamente.</p>
+            <div class="info-block">
+                <h4>1. Información del Tipo de Cambio:</h4>
+                <p>SoloCambiosJP proporciona información sobre el tipo de cambio del dólar estadounidense (USD) frente al Bolívar Soberano (VES) obtenida de proveedores externos. Esta información se ofrece solo con fines informativos y no debe ser considerada como asesoramiento financiero, de inversión o legal. Aunque nos esforzamos por mantener la información actualizada y precisa, no garantizamos su exactitud, fiabilidad o completitud.</p>
+                <p>Las tasas de cambio pueden variar rápidamente y diferir de las tasas ofrecidas por bancos, instituciones financieras o casas de cambio reales. Siempre verifique las tasas con su proveedor de servicios financieros antes de realizar cualquier transacción.</p>
+            </div>
+            <div class="info-block">
+                <h4>2. Uso del Servicio:</h4>
+                <ul>
+                    <li>El uso de SoloCambiosJP es bajo su propio riesgo.</li>
+                    <li>No somos responsables de las decisiones financieras tomadas basadas en la información proporcionada en este sitio.</li>
+                    <li>Nos reservamos el derecho de modificar o descontinuar el servicio (o cualquier parte de él) sin previo aviso en cualquier momento.</li>
+                    <li>Está prohibido cualquier uso del sitio que infrinja leyes locales, nacionales o internacionales, o que dañe, desactive o sobrecargue el sitio.</li>
+                </ul>
+            </div>
+            <div class="info-block">
+                <h4>3. Propiedad Intelectual:</h4>
+                <p>Todo el contenido presente en SoloCambiosJP, incluyendo textos, gráficos, logotipos, íconos, imágenes, clips de audio y software, es propiedad de SoloCambiosJP o de sus proveedores de contenido y está protegido por las leyes de derechos de autor.</p>
+            </div>
+            <div class="info-block">
+                <h4>4. Enlaces a Terceros:</h4>
+                <p>Nuestro sitio puede contener enlaces a sitios web de terceros. Estos enlaces se proporcionan únicamente para su conveniencia. No tenemos control sobre el contenido de dichos sitios web y no somos responsables de ellos.</p>
+            </div>
+            <div class="info-block">
+                <h4>5. Limitación de Responsabilidad:</h4>
+                <p>En ningún caso SoloCambiosJP, sus directores, empleados o afiliados serán responsables de daños directos, indirectos, incidentales, especiales, consecuenciales o punitivos, incluyendo, sin limitación, pérdida de beneficios, datos, uso o cualquier otra pérdida intangible, resultantes de (i) su acceso o uso o incapacidad de acceder o usar el Servicio; (iii) cualquier contenido obtenido del Servicio; y (iv) acceso, uso o alteración no autorizados de sus transmisiones o contenido, ya sea basado en garantía, contrato, agravio (incluyendo negligencia) o cualquier otra teoría legal, hayamos sido informados o no de la posibilidad de tales daños.</p>
+            </div>
+            <div class="info-block">
+                <h4>6. Modificaciones de los Términos:</h4>
+                <p>Nos reservamos el derecho de revisar estos Términos y Condiciones en cualquier momento, actualizando esta publicación. Al utilizar este sitio web, usted acepta estar sujeto a la versión actual de estos Términos y Condiciones.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 SoloCambiosJP. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
