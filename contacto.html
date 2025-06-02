@@ -113,7 +113,7 @@
             color: var(--primary-color);
             text-align: center;
             margin-bottom: 30px;
-            font-size: 2em;
+            font-size: 2em; /* Tamaño general para h2 y h3 */
             position: relative;
         }
 
@@ -128,59 +128,62 @@
             transform: translateX(-50%);
         }
 
+        /* ESTILOS ESPECÍFICOS PARA LA SECCIÓN DE CONTACTO */
+        .contact-section h2 { /* Targeting the contact section's h2 */
+            font-size: 3em; /* Hacemos el título más grande */
+            margin-bottom: 20px; /* Reducimos un poco el margen inferior */
+        }
+
+        .contact-section h2::after {
+            width: 80px; /* Barra inferior más ancha para un título más grande */
+            height: 4px; /* Barra inferior más gruesa */
+            bottom: -15px; /* Más abajo del título */
+        }
+
+        .contact-section .intro-text { /* Estilo para el párrafo introductorio de la sección */
+            max-width: 700px; /* Limita el ancho para mejor lectura */
+            margin: 0 auto 40px auto; /* Centra y añade más margen inferior */
+            font-size: 1.2em; /* Un poco más grande */
+            color: var(--light-text);
+            text-align: center;
+        }
+
         address {
             font-style: normal;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 40px; /* Más espacio por encima de la dirección */
         }
 
         address p {
-            margin: 5px 0;
+            margin: 8px 0; /* Un poco más de espacio entre líneas */
+            font-size: 1.1em;
+        }
+        
+        address a {
+            color: var(--primary-color); /* Color de enlace consistente */
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        .contact-form {
+        address a:hover {
+            color: #40B8B2; /* Tono de hover */
+        }
+
+        /* Estilos para el contenedor del iframe de Tally */
+        .tally-form-container {
             max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 20px; /* Padding interno del contenedor, no del iframe */
             background-color: var(--light-grey);
             border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            /* Asegúrate de que el iframe se ajuste bien */
+            overflow: hidden; /* Oculta cualquier desbordamiento si el iframe no se adapta */
         }
 
-        .contact-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .contact-form button {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            transition: background 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background: #40B8B2;
+        .tally-form-container iframe {
+            display: block; /* Elimina cualquier espacio extra debajo del iframe */
+            border: none; /* Quita el borde por defecto del iframe */
         }
 
         footer {
@@ -189,6 +192,7 @@
             text-align: center;
             padding: 20px 0;
             margin-top: 50px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
 
         footer p {
@@ -205,11 +209,19 @@
             .container { width: 95%; margin: 20px auto; padding: 15px; }
             section { padding: 30px 0; }
             h2, h3 { font-size: 1.8em; }
+            .contact-section h2 { font-size: 2.5em; } /* Ajuste para tablets */
+            .contact-section h2::after { width: 70px; }
+            .contact-section .intro-text { font-size: 1.1em; margin-bottom: 30px; }
+            .tally-form-container { padding: 15px; } /* Ajusta padding para móviles */
         }
         @media (max-width: 480px) {
             header h1 { font-size: 1.8em; }
             header p { font-size: 0.9em; }
             h2, h3 { font-size: 1.6em; }
+            .contact-section h2 { font-size: 2.2em; } /* Ajuste para móviles */
+            .contact-section h2::after { width: 60px; }
+            .contact-section .intro-text { font-size: 1em; margin-bottom: 25px; }
+            .tally-form-container { padding: 10px; } /* Ajusta padding para móviles */
         }
     </style>
 </head>
@@ -229,32 +241,18 @@
     </nav>
 
     <div class="container">
-        <section>
+        <section class="contact-section">
             <h2>Contáctanos</h2>
-            <p>¿Tienes alguna pregunta, sugerencia o necesitas reportar un problema? No dudes en contactarnos. Estamos aquí para ayudarte.</p>
-            <div class="contact-form">
-                <form action="#" method="POST">
-                    <label for="name">Nombre:</label>
-                    <input type="text" id="name" name="name" required>
-
-                    <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email" required>
-
-                    <label for="subject">Asunto:</label>
-                    <input type="text" id="subject" name="subject" required>
-
-                    <label for="message">Mensaje:</label>
-                    <textarea id="message" name="message" required></textarea>
-
-                    <button type="submit">Enviar Mensaje</button>
-                </form>
+            <p class="intro-text">¿Tienes alguna pregunta, sugerencia o necesitas reportar un problema? No dudes en contactarnos. Estamos aquí para ayudarte y responderemos a la brevedad posible.</p>
+            
+            <div class="tally-form-container">
+                <iframe data-tally-src="https://tally.so/embed/mDPOoN?alignLeft=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="Formulario de contacto"></iframe>
+                <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
             </div>
             <address>
                 <p>También puedes encontrarnos en:</p>
-                <p>Email: <a href="mailto:info@solocambiosjp.com">info@solocambiosjp.com</a> (ejemplo)</p>
-                <p>Teléfono: +58 412 123 4567 (ejemplo)</p>
-                <p>Redes Sociales: Próximamente...</p>
-            </address>
+                <p>Email: <a href="mailto:solocambiosonline@gmail.com">solocambiosonline@gmail.com</a></p>
+                </address>
         </section>
     </div>
 
