@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoloCambiosJP - Precio del Dólar en Venezuela</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS GENERAL (RECOMENDADO MOVER A style.css) */
+        :root {
+            --primary-color: #50C9C3; /* Color principal del widget */
+            --secondary-color: #96DEDA; /* Color secundario del widget */
+            --dark-text: #333;
+            --light-text: #666;
+            --white: #ffffff;
+            --light-grey: #f4f4f4;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-grey);
+            color: var(--dark-text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        nav {
+            background-color: var(--dark-text);
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 180px); /* Ajusta según el tamaño de tu header/footer */
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .main-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            position: relative;
+        }
+
+        .main-content h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .price-widget-wrapper, .converter-widget-wrapper {
+            margin: 40px 0; /* Más espacio para los widgets */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada para destacarlo */
+            border-radius: 10px;
+            overflow: hidden; /* Asegura que el shadow no corte bordes del widget */
+            padding: 20px; /* Añadido padding para que el widget no toque los bordes */
+            background-color: var(--white); /* Fondo blanco para los widgets */
+        }
+        
+        /* Ajuste específico para el widget de conversión si es necesario */
+        .converter-widget-wrapper {
+            margin-top: 20px; /* Un poco menos de espacio entre los dos widgets */
+            width: fit-content; /* Ajusta el ancho al contenido del widget */
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            color: var(--light-text);
+        }
+
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+            .main-content h2 {
+                font-size: 2em;
+            }
+            .price-widget-wrapper, .converter-widget-wrapper {
+                margin: 20px 0;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            header p {
+                font-size: 0.9em;
+            }
+            .main-content h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SoloCambiosJP</h1>
+        <p>Tu Referencia del Dólar en Venezuela</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+            <li><a href="terminos.html">Términos y Condiciones</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content" id="inicio">
+        <h2>Precio Actual del Dólar en Venezuela</h2>
+        <p class="intro-text">Consulta de forma rápida y sencilla el tipo de cambio del **Dólar (USD)** frente al **Bolívar Soberano (VES)**. Nuestros datos se actualizan constantemente para ofrecerte la información más precisa.</p>
+
+        <div class="price-widget-wrapper">
+            <fxwidget-er inverse="false" amount="1" decimals="2" large="true" shadow="true" symbol="true" flag="true" changes="true" grouping="true" border="false" main-curr="USD" sel-curr="VES" background-color="#50C9C3" background="linear-gradient(120deg,#50C9C3,#96DEDA)" border-radius="0.3"></fxwidget-er>
+            <a href="https://currencyrate.today/" target="_blank" style="font-size: 0.8em; color: var(--light-text); text-decoration: none; margin-top: 10px; display: block;">Fuente: CurrencyRate.Today</a>
+        </div>
+
+        <h2 style="margin-top: 50px;">Conversor de Divisas</h2>
+        <p class="intro-text">Utiliza nuestra herramienta para convertir rápidamente cualquier cantidad entre el Dólar y el Bolívar.</p>
+        
+        <div class="converter-widget-wrapper">
+            <script>var fm = "USD";var to = "VES";var tz = "-4";var sz = "1x1";var lg = "es";var st = "primary";var lr = "1";var rd = "0";</script><script src="//currencyrate.today/converter"></script><div style="text-align:right; font-size: 0.8em; margin-top: 10px;"><a href="https://currencyrate.today" target="_blank" style="color: var(--light-text); text-decoration: none;">CurrencyRate</a></div>
+            </div>
+
+        <p class="intro-text">Mantente informado y realiza tus cálculos con SoloCambiosJP, tu aliado confiable para la economía venezolana.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 SoloCambiosJP. Todos los derechos reservados.</p>
+    </footer>
+
+    <script async src="https://s.fx-w.io/widgets/exchange-rates/latest.js"></script>
+</body>
+</html>
