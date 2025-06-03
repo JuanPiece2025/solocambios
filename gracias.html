@@ -7,10 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="fotos/favicon.ico">
     <style>
-        /* CSS general para todas las páginas (considera moverlo a un archivo style.css externo) */
+        /* CSS GENERAL (RECOMENDADO MOVER A style.css) */
         :root {
-            --primary-color: #50C9C3;
-            --secondary-color: #96DEDA;
+            --primary-color: #50C9C3; /* Color principal del widget */
+            --secondary-color: #96DEDA; /* Color secundario del widget */
             --dark-text: #333;
             --light-text: #666;
             --white: #ffffff;
@@ -37,13 +37,20 @@
             color: var(--white);
             padding: 20px 0;
             text-align: center;
+            /* La sombra principal del header ya está aquí,
+                pero la del banner será específica para la imagen. */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            letter-spacing: 2px;
+        /* Estilos para la imagen del banner dentro del header */
+        header img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Para eliminar espacios extra debajo de la imagen */
+            margin: 0 auto; /* Centra la imagen si el ancho máximo no es 100% */
+            /* AÑADIDO: Sombra al banner */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave y visible */
+            border-radius: 8px; /* Opcional: bordes ligeramente redondeados para la sombra */
         }
 
         header p {
@@ -102,7 +109,7 @@
             padding: 20px;
             background-color: var(--white);
             border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra consistente con los widgets */
             /* Flexbox para centrar contenido verticalmente */
             flex-grow: 1; /* Permite que el contenedor ocupe el espacio restante */
             display: flex;
@@ -113,25 +120,6 @@
             padding: 40px 20px; /* Aumenta el padding para que respire */
         }
 
-        h2, h3 { /* Mantengo estos estilos base, pero los override para la sección de agradecimiento */
-            color: var(--primary-color);
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2em;
-            position: relative;
-        }
-
-        h2::after, h3::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 3px;
-            background: var(--primary-color);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
         /* ESTILOS ESPECÍFICOS PARA LA PÁGINA DE AGRADECIMIENTO */
         .thank-you-section {
             padding: 0; /* No padding adicional para esta sección, ya lo tiene el container */
@@ -140,6 +128,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            width: 100%; /* Para que ocupe todo el ancho del container */
         }
 
         .thank-you-section h1 {
@@ -192,7 +181,7 @@
             color: var(--white);
             text-align: center;
             padding: 20px 0;
-            margin-top: 50px; /* Margin-top para separar del contenido */
+            margin-top: auto; /* Para empujar el footer hacia abajo */
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
 
@@ -203,27 +192,48 @@
 
         /* Media Queries */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.2em; }
-            header p { font-size: 1em; }
-            nav ul { flex-direction: column; }
-            nav ul li { margin: 5px 0; }
-            .container { width: 95%; margin: 20px auto; padding: 30px 15px; }
+            header p {
+                font-size: 1em;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+            .container { 
+                width: 95%; 
+                margin: 20px auto; 
+                padding: 30px 15px; 
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más sutil en móviles */
+            }
             .thank-you-section h1 { font-size: 2.5em; }
             .thank-you-section p { font-size: 1.1em; }
             .btn-back-home { padding: 10px 20px; font-size: 1em; }
+            /* Ajuste de sombra en pantallas más pequeñas si es necesario */
+            header img {
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Sombra un poco más sutil */
+            }
         }
         @media (max-width: 480px) {
-            header h1 { font-size: 1.8em; }
-            header p { font-size: 0.9em; }
+            header p {
+                font-size: 0.9em;
+            }
             .container { padding: 20px 10px; }
             .thank-you-section h1 { font-size: 2em; }
             .thank-you-section p { font-size: 1em; }
+            /* Ajuste de sombra en pantallas muy pequeñas si es necesario */
+            header img {
+                box-shadow: none; /* Podrías quitar la sombra si quieres en móviles muy pequeños */
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>SoloCambiosJP</h1>
+        <a href="index.html">
+            <img src="fotos/banner.jpg" alt="SoloCambiosJP" style="max-width: 100%; height: auto; display: block;">
+        </a>
         <p>Tu Referencia del Dólar en Venezuela</p>
     </header>
 
