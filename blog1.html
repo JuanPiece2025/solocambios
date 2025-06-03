@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post 1: Análisis de Mercado - SoloCambiosJP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="fotos/favicon.ico">
+    <style>
+        /* Puedes reutilizar estilos generales de tu index.html o crear un style.css */
+        :root {
+            --primary-color: #50C9C3;
+            --secondary-color: #96DEDA;
+            --dark-text: #333;
+            --light-text: #666;
+            --white: #ffffff;
+            --light-grey: #f4f4f4;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-grey);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background-color: var(--dark-text);
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* AÑADIDO: Oculta el contenedor del blog por defecto */
+            display: none; 
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        img.blog-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.1em;
+        }
+        .back-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+        /* Para mostrar un mensaje de carga o de acceso */
+        .loading-message, .access-message {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.5em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="fotos/banner.jpg" alt="SoloCambiosJP" style="max-width: 100%; height: auto; display: block;">
+        </a>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+            <li><a href="terminos.html">Términos y Condiciones</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="blog-post-1.html">Blog Post 1</a></li>
+            <li><a href="blog-post-2.html">Blog Post 2</a></li>
+        </ul>
+    </nav>
+
+    <div class="loading-message" id="initialMessage">
+        Verificando acceso...
+    </div>
+
+    <div class="container" id="blogContent">
+        <h1>Análisis Profundo del Mercado Venezolano 2025</h1>
+        <p>En este primer post exclusivo para nuestros miembros, exploraremos las tendencias macroeconómicas que están modelando el panorama financiero de Venezuela en 2025.</p>
+        
+        <img src="fotos/mercado_venezolano.jpg" alt="Gráfico del Mercado Venezolano" class="blog-image">
+
+        <p>La economía venezolana sigue enfrentando desafíos significativos, pero también muestra signos de adaptación y resiliencia en ciertos sectores. La dolarización informal continúa siendo un factor dominante, influenciando no solo las transacciones comerciales sino también la formación de precios y el comportamiento del consumidor.</p>
+
+        <h3>Factores Clave a Considerar:</h3>
+        <ul>
+            <li>**Estabilidad del Tipo de Cambio:** A pesar de las fluctuaciones diarias, el tipo de cambio ha mantenido una relativa estabilidad en los últimos meses, en parte debido a las intervenciones del Banco Central de Venezuela. Analizamos cómo estas políticas afectan tu poder adquisitivo.</li>
+            <li>**Producción Petrolera:** El repunte gradual de la producción petrolera, aunque modesto, podría inyectar mayor liquidez y divisas al mercado, impactando directamente la oferta de dólares.</li>
+            <li>**Inflación y Precios:** Si bien la hiperinflación ha sido contenida, la inflación sigue siendo un desafío. Detallamos los bienes y servicios que más han visto afectado su precio.</li>
+            <li>**Inversión Extranjera:** Exploramos las oportunidades y barreras para la inversión extranjera, y cómo los nuevos acuerdos comerciales podrían influir en el flujo de capitales.</li>
+        </ul>
+
+        <p>Este informe detallado te proporcionará una visión clara de dónde estamos y hacia dónde nos dirigimos, ayudándote a tomar decisiones financieras más informadas.</p>
+        <p>¡Mantente atento a nuestras próximas actualizaciones y recursos exclusivos!</p>
+
+        <div class="back-link">
+            <a href="index.html">← Volver a la Página Principal</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 SoloCambiosJP. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+
+    <script type="module">
+        // **TU CONFIGURACIÓN DE FIREBASE AQUÍ (DEBE SER LA MISMA QUE EN index.html)**
+        const firebaseConfig = {
+          apiKey: "AIzaSyALaT99MMtdr1CScCz9hf08oTLoXKhwMds",
+          authDomain: "solocambios-91a78.firebaseapp.com",
+          projectId: "solocambios-91a78",
+          storageBucket: "solocambios-91a78.firebasestorage.app",
+          messagingSenderId: "692579617511",
+          appId: "1:692579617511:web:870bd57505bcc8effdf042",
+          measurementId: "G-7JL6GJ34V2"
+        };
+
+        // Inicializar Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = app.auth();
+
+        const blogContent = document.getElementById('blogContent');
+        const initialMessage = document.getElementById('initialMessage');
+
+        // Observador del estado de autenticación
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                // Usuario logueado: Oculta el mensaje inicial y muestra el contenido del blog
+                console.log("Usuario logueado. Acceso permitido al blog.");
+                initialMessage.style.display = 'none'; // Oculta el mensaje "Verificando acceso..."
+                blogContent.style.display = 'block'; // Muestra el contenido real del blog
+            } else {
+                // No hay usuario logueado: Muestra mensaje y redirige
+                console.log("Usuario no logueado. Redirigiendo a la página principal.");
+                initialMessage.textContent = "Acceso Restringido. Redirigiendo..."; // Cambia el mensaje
+                setTimeout(() => {
+                    alert("Acceso Restringido. Debes iniciar sesión para ver este contenido.");
+                    window.location.href = 'index.html'; // Redirige a la página principal
+                }, 1000); // Pequeño retraso para que el usuario vea el mensaje
+            }
+        });
+    </script>
+</body>
+</html>
