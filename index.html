@@ -33,20 +33,16 @@
             color: var(--white);
             padding: 20px 0;
             text-align: center;
-            /* La sombra principal del header ya está aquí,
-                pero la del banner será específica para la imagen. */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Estilos para la imagen del banner dentro del header */
         header img {
             max-width: 100%;
             height: auto;
-            display: block; /* Para eliminar espacios extra debajo de la imagen */
-            margin: 0 auto; /* Centra la imagen si el ancho máximo no es 100% */
-            /* AÑADIDO: Sombra al banner */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave y visible */
-            border-radius: 8px; /* Opcional: bordes ligeramente redondeados para la sombra */
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
         }
 
         header p {
@@ -67,6 +63,7 @@
             margin: 0;
             display: flex;
             justify-content: center;
+            align-items: center; /* Centra verticalmente los elementos de la nav */
             flex-wrap: wrap;
         }
 
@@ -98,6 +95,37 @@
             width: 100%;
         }
 
+        /* ESTILOS PARA LOS BOTONES DE AUTENTICACIÓN EN LA NAV */
+        .nav-auth-buttons button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+            margin-left: 10px; /* Espacio entre los enlaces y los botones */
+        }
+
+        .nav-auth-buttons button:hover {
+            background-color: #40A8A3; /* Un tono más oscuro */
+        }
+
+        .nav-auth-buttons #logoutBtn {
+            background-color: #f44336; /* Rojo para cerrar sesión */
+        }
+
+        .nav-auth-buttons #logoutBtn:hover {
+            background-color: #d32f2f;
+        }
+
+        .nav-auth-buttons span {
+            color: var(--white);
+            margin-left: 15px;
+            font-size: 0.9em;
+        }
+
         .main-content {
             display: flex;
             flex-direction: column;
@@ -127,20 +155,18 @@
         }
 
         .price-widget-wrapper, .converter-widget-wrapper {
-            margin: 40px 0; /* Más espacio para los widgets */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada para destacarlo */
+            margin: 40px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             border-radius: 10px;
-            overflow: hidden; /* Asegura que el shadow no corte bordes del widget */
-            padding: 20px; /* Añadido padding para que el widget no toque los bordes */
-            background-color: var(--white); /* Fondo blanco para los widgets */
-            /* Ajuste para que los widgets se vean bien en pantallas pequeñas */
-            width: fit-content; /* Se ajusta al contenido del widget si es más pequeño */
-            max-width: 90%; /* Evita que el widget se desborde en pantallas muy pequeñas */
+            overflow: hidden;
+            padding: 20px;
+            background-color: var(--white);
+            width: fit-content;
+            max-width: 90%;
         }
         
-        /* Ajuste específico para el widget de conversión si es necesario */
         .converter-widget-wrapper {
-            margin-top: 20px; /* Un poco menos de espacio entre los dos widgets */
+            margin-top: 20px;
         }
 
         .intro-text {
@@ -148,6 +174,37 @@
             margin-bottom: 30px;
             font-size: 1.1em;
             color: var(--light-text);
+        }
+
+        /* NUEVA SECCIÓN: Contenido Exclusivo para Usuarios Logueados */
+        .premium-content {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+            width: 100%;
+            max-width: 700px;
+            text-align: left;
+        }
+
+        .premium-content h3 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .premium-content ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        .premium-content li {
+            margin-bottom: 10px;
+            color: var(--dark-text);
         }
 
         footer {
@@ -170,20 +227,26 @@
             }
             nav ul {
                 flex-direction: column;
+                align-items: center; /* Centra elementos de la nav */
             }
             nav ul li {
                 margin: 5px 0;
             }
+            .nav-auth-buttons {
+                margin-top: 10px; /* Espacio si los botones quedan en nueva línea */
+            }
+            .nav-auth-buttons button, .nav-auth-buttons span {
+                margin: 5px 10px; /* Ajuste de márgenes en móviles */
+            }
             .main-content h2 {
                 font-size: 2em;
             }
-            .price-widget-wrapper, .converter-widget-wrapper {
-                margin: 20px 0;
+            .price-widget-wrapper, .converter-widget-wrapper, .premium-content {
+                margin: 20px auto; /* Centra y ajusta margen */
                 padding: 15px;
             }
-            /* Ajuste de sombra en pantallas más pequeñas si es necesario */
             header img {
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Sombra un poco más sutil */
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             }
         }
 
@@ -194,13 +257,12 @@
             .main-content h2 {
                 font-size: 1.8em;
             }
-            .price-widget-wrapper, .converter-widget-wrapper {
-                max-width: 100%; /* Permite que ocupe todo el ancho disponible */
-                box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+            .price-widget-wrapper, .converter-widget-wrapper, .premium-content {
+                max-width: 100%;
+                box-sizing: border-box;
             }
-            /* Ajuste de sombra en pantallas muy pequeñas si es necesario */
             header img {
-                box-shadow: none; /* Podrías quitar la sombra si quieres en móviles muy pequeños */
+                box-shadow: none;
             }
         }
     </style>
@@ -219,6 +281,12 @@
             <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
             <li><a href="terminos.html">Términos y Condiciones</a></li>
             <li><a href="contacto.html">Contacto</a></li>
+            <li class="nav-auth-buttons">
+                <button id="navLoginBtn" style="display: none;">Iniciar Sesión</button>
+                <button id="navRegisterBtn" style="display: none;">Registrarse</button>
+                <span id="navUserEmail" style="display: none;"></span>
+                <button id="navLogoutBtn" style="display: none;">Cerrar Sesión</button>
+            </li>
         </ul>
     </nav>
 
@@ -238,11 +306,92 @@
         </div>
 
         <p class="intro-text">Mantente informado y realiza tus cálculos con SoloCambiosJP, tu aliado confiable para la economía venezolana.</p>
+
+        <div class="premium-content" id="premium-content" style="display: none;">
+            <h3>Contenido Exclusivo para Miembros</h3>
+            <p>¡Felicidades! Has iniciado sesión y ahora puedes ver este contenido especial.</p>
+            <ul>
+                <li>Acceso a artículos premium.</li>
+                <li>Descarga de recursos exclusivos.</li>
+                <li>Participación en foros privados.</li>
+            </ul>
+            <p>Disfruta de tu experiencia mejorada.</p>
+        </div>
+
     </div>
 
     <footer>
         <p>&copy; 2025 SoloCambiosJP. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+
+    <script type="module">
+        // **TU CONFIGURACIÓN DE FIREBASE AQUÍ**
+        // Código extraído de tu imagen (image_c09874.png) y validado
+        const firebaseConfig = {
+          apiKey: "AIzaSyALaT99MMtdr1CScCz9hf08oTLoXKhwMds",
+          authDomain: "solocambios-91a78.firebaseapp.com",
+          projectId: "solocambios-91a78",
+          storageBucket: "solocambios-91a78.firebasestorage.app",
+          messagingSenderId: "692579617511",
+          appId: "1:692579617511:web:870bd57505bcc8effdf042",
+          measurementId: "G-7JL6GJ34V2"
+        };
+
+        // Inicializar Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = app.auth();
+
+        // Referencias a los nuevos elementos de la navegación
+        const navLoginBtn = document.getElementById('navLoginBtn');
+        const navRegisterBtn = document.getElementById('navRegisterBtn');
+        const navUserEmail = document.getElementById('navUserEmail');
+        const navLogoutBtn = document.getElementById('navLogoutBtn');
+        // Referencia al contenido premium
+        const premiumContentDiv = document.getElementById('premium-content');
+
+        // Event Listeners para los botones de la navegación
+        navLoginBtn.addEventListener('click', () => {
+            window.location.href = 'login.html'; // Redirige a la página de login
+        });
+
+        navRegisterBtn.addEventListener('click', () => {
+            window.location.href = 'register.html'; // Redirige a la página de registro
+        });
+
+        navLogoutBtn.addEventListener('click', async () => {
+            try {
+                await auth.signOut();
+                console.log('Sesión cerrada desde la navegación.');
+                // onAuthStateChanged se encargará de actualizar la UI
+            } catch (error) {
+                console.error("Error al cerrar sesión desde la navegación:", error);
+            }
+        });
+
+        // Observador del estado de autenticación (se dispara al cargar y al cambiar el estado)
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                // Usuario logueado
+                navLoginBtn.style.display = 'none';
+                navRegisterBtn.style.display = 'none';
+                navUserEmail.textContent = user.email;
+                navUserEmail.style.display = 'inline'; // Muestra el email
+                navLogoutBtn.style.display = 'inline'; // Muestra el botón de cerrar sesión
+                premiumContentDiv.style.display = 'block'; // Muestra el contenido extra
+
+            } else {
+                // No hay usuario logueado
+                navLoginBtn.style.display = 'inline'; // Muestra el botón de login
+                navRegisterBtn.style.display = 'inline'; // Muestra el botón de registro
+                navUserEmail.style.display = 'none';
+                navLogoutBtn.style.display = 'none';
+                premiumContentDiv.style.display = 'none'; // Oculta el contenido extra
+            }
+        });
+    </script>
 
     <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
     <div>
