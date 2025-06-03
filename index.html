@@ -176,7 +176,7 @@
             color: var(--light-text);
         }
 
-        /* NUEVA SECCIÓN: Contenido Exclusivo para Usuarios Logueados */
+        /* Contenido Exclusivo */
         .premium-content {
             background-color: var(--white);
             padding: 30px;
@@ -205,6 +205,31 @@
         .premium-content li {
             margin-bottom: 10px;
             color: var(--dark-text);
+        }
+
+        /* Estilos para enlaces bloqueados */
+        .blocked-link {
+            cursor: not-allowed;
+            opacity: 0.6;
+            pointer-events: none; /* Deshabilita el click directo */
+        }
+        .blocked-link:hover {
+            color: var(--white) !important; /* Mantiene el color blanco en hover para el nav */
+        }
+        /* Para mensajes de alerta temporal */
+        .temp-alert {
+            background-color: #ffeb3b; /* Amarillo claro */
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+            animation: fadeOut 3s forwards; /* Animación de desaparición */
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; display: none; }
         }
 
         footer {
@@ -281,9 +306,10 @@
             <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
             <li><a href="terminos.html">Términos y Condiciones</a></li>
             <li><a href="contacto.html">Contacto</a></li>
-            <li class="nav-auth-buttons">
+            <li class="blog-link-item" style="display: none;"><a href="blog1.html" class="blog-link" id="blogLink1">Blog Post 1 (Exclusivo)</a></li>
+            <li class="blog-link-item" style="display: none;"><a href="blog2.html" class="blog-link" id="blogLink2">Blog Post 2 (Exclusivo)</a></li>
+            <li class="nav-auth-buttons" id="authButtonsContainer">
                 <button id="navLoginBtn" style="display: none;">Iniciar Sesión</button>
-                <button id="navRegisterBtn" style="display: none;">Registrarse</button>
                 <span id="navUserEmail" style="display: none;"></span>
                 <button id="navLogoutBtn" style="display: none;">Cerrar Sesión</button>
             </li>
@@ -306,18 +332,22 @@
         </div>
 
         <p class="intro-text">Mantente informado y realiza tus cálculos con SoloCambiosJP, tu aliado confiable para la economía venezolana.</p>
+        
+        <div id="messageContainer"></div>
 
         <div class="premium-content" id="premium-content" style="display: none;">
-            <h3>Contenido Exclusivo para Miembros</h3>
-            <p>¡Felicidades! Has iniciado sesión y ahora puedes ver este contenido especial.</p>
+            <h3>¡Bienvenido, Miembro Premium!</h3>
+            <p>Gracias por ser parte de nuestra comunidad exclusiva. Aquí tienes acceso a recursos y análisis avanzados:</p>
             <ul>
-                <li>Acceso a artículos premium.</li>
-                <li>Descarga de recursos exclusivos.</li>
-                <li>Participación en foros privados.</li>
+                <li>📊 **Análisis Profundos de Mercado:** Explora nuestros reportes trimestrales sobre la economía venezolana y el comportamiento de las divisas.</li>
+                <li>📈 **Herramientas de Simulación Financiera:** Utiliza nuestras calculadoras avanzadas para planificar tus inversiones y ahorros.</li>
+                <li>📚 **Biblioteca de E-books y Guías:** Descarga material educativo exclusivo sobre gestión de finanzas personales y empresariales en un entorno volátil.</li>
+                <li>💬 **Foro de Miembros y Webinars Mensuales:** Participa en discusiones con expertos y otros miembros, y asiste a nuestras sesiones en vivo.</li>
+                <li>⚡ **Alertas de Mercado en Tiempo Real:** Recibe notificaciones instantáneas sobre cambios significativos en las tasas de cambio y eventos económicos clave.</li>
             </ul>
-            <p>Disfruta de tu experiencia mejorada.</p>
+            <p>¡Esperamos que disfrutes de tu experiencia mejorada con SoloCambiosJP!</p>
+            <p style="font-size: 0.9em; color: #888;">¿Necesitas ayuda o tienes alguna sugerencia? <a href="contacto.html" style="color: var(--primary-color);">Contáctanos</a>.</p>
         </div>
-
     </div>
 
     <footer>
@@ -329,7 +359,6 @@
 
     <script type="module">
         // **TU CONFIGURACIÓN DE FIREBASE AQUÍ**
-        // Código extraído de tu imagen (image_c09874.png) y validado
         const firebaseConfig = {
           apiKey: "AIzaSyALaT99MMtdr1CScCz9hf08oTLoXKhwMds",
           authDomain: "solocambios-91a78.firebaseapp.com",
@@ -344,23 +373,30 @@
         const app = firebase.initializeApp(firebaseConfig);
         const auth = app.auth();
 
-        // Referencias a los nuevos elementos de la navegación
+        // Referencias a los elementos del DOM
         const navLoginBtn = document.getElementById('navLoginBtn');
-        const navRegisterBtn = document.getElementById('navRegisterBtn');
         const navUserEmail = document.getElementById('navUserEmail');
         const navLogoutBtn = document.getElementById('navLogoutBtn');
-        // Referencia al contenido premium
         const premiumContentDiv = document.getElementById('premium-content');
+        // Ahora seleccionamos los <li> que contienen los enlaces de blog
+        const blogLinkItems = document.querySelectorAll('.blog-link-item'); 
+        const messageContainer = document.getElementById('messageContainer'); 
+        const authButtonsContainer = document.getElementById('authButtonsContainer'); 
 
-        // Event Listeners para los botones de la navegación
+        // Función para mostrar un mensaje temporal
+        function showTempMessage(message) {
+            messageContainer.innerHTML = `<div class="temp-alert">${message}</div>`;
+            setTimeout(() => {
+                messageContainer.innerHTML = ''; // Borra el mensaje después de la animación
+            }, 3000); // Duración de la animación + un poco más
+        }
+
+        // Event Listener para el botón de Iniciar Sesión
         navLoginBtn.addEventListener('click', () => {
             window.location.href = 'login.html'; // Redirige a la página de login
         });
 
-        navRegisterBtn.addEventListener('click', () => {
-            window.location.href = 'register.html'; // Redirige a la página de registro
-        });
-
+        // Event Listener para el botón de Cerrar Sesión
         navLogoutBtn.addEventListener('click', async () => {
             try {
                 await auth.signOut();
@@ -375,22 +411,42 @@
         auth.onAuthStateChanged(user => {
             if (user) {
                 // Usuario logueado
-                navLoginBtn.style.display = 'none';
-                navRegisterBtn.style.display = 'none';
+                navLoginBtn.style.display = 'none'; // Oculta el botón de login
                 navUserEmail.textContent = user.email;
                 navUserEmail.style.display = 'inline'; // Muestra el email
                 navLogoutBtn.style.display = 'inline'; // Muestra el botón de cerrar sesión
-                premiumContentDiv.style.display = 'block'; // Muestra el contenido extra
+                premiumContentDiv.style.display = 'block'; // Muestra el contenido exclusivo
+
+                // Muestra los elementos de la lista de blog
+                blogLinkItems.forEach(item => {
+                    item.style.display = 'list-item'; // Muestra el <li> como un elemento de lista
+                });
 
             } else {
                 // No hay usuario logueado
                 navLoginBtn.style.display = 'inline'; // Muestra el botón de login
-                navRegisterBtn.style.display = 'inline'; // Muestra el botón de registro
-                navUserEmail.style.display = 'none';
-                navLogoutBtn.style.display = 'none';
-                premiumContentDiv.style.display = 'none'; // Oculta el contenido extra
+                navUserEmail.style.display = 'none'; // Oculta el email
+                navLogoutBtn.style.display = 'none'; // Oculta el botón de cerrar sesión
+                premiumContentDiv.style.display = 'none'; // Oculta el contenido exclusivo
+
+                // Oculta los elementos de la lista de blog
+                blogLinkItems.forEach(item => {
+                    item.style.display = 'none'; // Oculta completamente el <li>
+                });
             }
         });
+
+        // Inicializar el estado de los botones y enlaces del blog al cargar la página
+        // Esto es importante para que se muestren/oculten correctamente al inicio
+        navLoginBtn.style.display = 'inline'; // Por defecto, mostrar solo el botón de login
+        navUserEmail.style.display = 'none';
+        navLogoutBtn.style.display = 'none';
+
+        // Por defecto, oculta los enlaces del blog al cargar la página
+        blogLinkItems.forEach(item => {
+            item.style.display = 'none';
+        });
+
     </script>
 
     <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
