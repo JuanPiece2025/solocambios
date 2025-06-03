@@ -33,13 +33,20 @@
             color: var(--white);
             padding: 20px 0;
             text-align: center;
+            /* La sombra principal del header ya está aquí,
+               pero la del banner será específica para la imagen. */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            letter-spacing: 2px;
+        /* Estilos para la imagen del banner dentro del header */
+        header img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Para eliminar espacios extra debajo de la imagen */
+            margin: 0 auto; /* Centra la imagen si el ancho máximo no es 100% */
+            /* AÑADIDO: Sombra al banner */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave y visible */
+            border-radius: 8px; /* Opcional: bordes ligeramente redondeados para la sombra */
         }
 
         header p {
@@ -126,12 +133,14 @@
             overflow: hidden; /* Asegura que el shadow no corte bordes del widget */
             padding: 20px; /* Añadido padding para que el widget no toque los bordes */
             background-color: var(--white); /* Fondo blanco para los widgets */
+            /* Ajuste para que los widgets se vean bien en pantallas pequeñas */
+            width: fit-content; /* Se ajusta al contenido del widget si es más pequeño */
+            max-width: 90%; /* Evita que el widget se desborde en pantallas muy pequeñas */
         }
         
         /* Ajuste específico para el widget de conversión si es necesario */
         .converter-widget-wrapper {
             margin-top: 20px; /* Un poco menos de espacio entre los dos widgets */
-            width: fit-content; /* Ajusta el ancho al contenido del widget */
         }
 
         .intro-text {
@@ -156,9 +165,6 @@
 
         /* Media Queries */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2em;
-            }
             header p {
                 font-size: 1em;
             }
@@ -175,24 +181,35 @@
                 margin: 20px 0;
                 padding: 15px;
             }
+            /* Ajuste de sombra en pantallas más pequeñas si es necesario */
+            header img {
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Sombra un poco más sutil */
+            }
         }
 
         @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.8em;
-            }
             header p {
                 font-size: 0.9em;
             }
             .main-content h2 {
                 font-size: 1.8em;
             }
+            .price-widget-wrapper, .converter-widget-wrapper {
+                max-width: 100%; /* Permite que ocupe todo el ancho disponible */
+                box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+            }
+            /* Ajuste de sombra en pantallas muy pequeñas si es necesario */
+            header img {
+                box-shadow: none; /* Podrías quitar la sombra si quieres en móviles muy pequeños */
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>SoloCambiosJP</h1>
+        <a href="index.html">
+            <img src="fotos/banner.jpg" alt="SoloCambiosJP" style="max-width: 100%; height: auto; display: block;">
+        </a>
         <p>Tu Referencia del Dólar en Venezuela</p>
     </header>
 
@@ -211,14 +228,14 @@
 
         <div class="price-widget-wrapper">
             <script>var fm = "USD";var to = "EUR,VES";var tz = "-4";var sz = "300x164";var lg = "es";var st = "primary";var cd = 0;var am = 1</script><script src="//currencyrate.today/exchangerates"></script><div style="text-align:right; font-size: 0.8em; margin-top: 10px;"><a href="https://currencyrate.today" target="_blank" style="color: var(--light-text); text-decoration: none;">CurrencyRate</a></div>
-            </div>
+        </div>
 
         <h2 style="margin-top: 50px;">Conversor de Divisas</h2>
         <p class="intro-text">Utiliza nuestra herramienta para convertir rápidamente cualquier cantidad entre el Dólar y el Bolívar.</p>
         
         <div class="converter-widget-wrapper">
             <script>var fm = "USD";var to = "VES";var tz = "-4";var sz = "1x1";var lg = "es";var st = "primary";var lr = "1";var rd = "0";</script><script src="//currencyrate.today/converter"></script><div style="text-align:right; font-size: 0.8em; margin-top: 10px;"><a href="https://currencyrate.today" target="_blank" style="color: var(--light-text); text-decoration: none;">CurrencyRate</a></div>
-            </div>
+        </div>
 
         <p class="intro-text">Mantente informado y realiza tus cálculos con SoloCambiosJP, tu aliado confiable para la economía venezolana.</p>
     </div>
@@ -227,5 +244,5 @@
         <p>&copy; 2025 SoloCambiosJP. Todos los derechos reservados.</p>
     </footer>
 
-    </body>
+</body>
 </html>
