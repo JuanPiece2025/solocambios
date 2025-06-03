@@ -7,10 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="fotos/favicon.ico">
     <style>
-        /* CSS general para todas las páginas (considera moverlo a un archivo style.css externo) */
+        /* CSS GENERAL (RECOMENDADO MOVER A style.css) */
         :root {
-            --primary-color: #50C9C3;
-            --secondary-color: #96DEDA;
+            --primary-color: #50C9C3; /* Color principal del widget */
+            --secondary-color: #96DEDA; /* Color secundario del widget */
             --dark-text: #333;
             --light-text: #666;
             --white: #ffffff;
@@ -33,13 +33,20 @@
             color: var(--white);
             padding: 20px 0;
             text-align: center;
+            /* La sombra principal del header ya está aquí,
+                pero la del banner será específica para la imagen. */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            letter-spacing: 2px;
+        /* Estilos para la imagen del banner dentro del header */
+        header img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Para eliminar espacios extra debajo de la imagen */
+            margin: 0 auto; /* Centra la imagen si el ancho máximo no es 100% */
+            /* AÑADIDO: Sombra al banner */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave y visible */
+            border-radius: 8px; /* Opcional: bordes ligeramente redondeados para la sombra */
         }
 
         header p {
@@ -98,7 +105,7 @@
             padding: 20px;
             background-color: var(--white);
             border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra consistente con los widgets */
         }
 
         section {
@@ -114,15 +121,15 @@
             color: var(--primary-color);
             text-align: center;
             margin-bottom: 30px;
-            font-size: 2em; /* Tamaño general para h2 y h3 */
+            font-size: 2.5em; /* Tamaño general para h2 y h3 */
             position: relative;
         }
 
         h2::after, h3::after {
             content: '';
             position: absolute;
-            width: 60px;
-            height: 3px;
+            width: 80px; /* Ancho consistente con el h2 principal */
+            height: 4px; /* Grosor consistente con el h2 principal */
             background: var(--primary-color);
             bottom: -10px;
             left: 50%;
@@ -130,21 +137,21 @@
         }
 
         /* ESTILOS ESPECÍFICOS PARA LA SECCIÓN DE CONTACTO */
-        .contact-section h2 { /* Targeting the contact section's h2 */
-            font-size: 3em; /* Hacemos el título más grande */
-            margin-bottom: 20px; /* Reducimos un poco el margen inferior */
+        .contact-section h2 { 
+            font-size: 2.5em; /* Mantener este tamaño consistente */
+            margin-bottom: 20px; 
         }
 
         .contact-section h2::after {
-            width: 80px; /* Barra inferior más ancha para un título más grande */
-            height: 4px; /* Barra inferior más gruesa */
-            bottom: -15px; /* Más abajo del título */
+            width: 80px; 
+            height: 4px; 
+            bottom: -15px; 
         }
 
-        .contact-section .intro-text { /* Estilo para el párrafo introductorio de la sección */
-            max-width: 700px; /* Limita el ancho para mejor lectura */
-            margin: 0 auto 40px auto; /* Centra y añade más margen inferior */
-            font-size: 1.2em; /* Un poco más grande */
+        .contact-section .intro-text { 
+            max-width: 700px; 
+            margin: 0 auto 40px auto; 
+            font-size: 1.1em; /* Ajustado para ser consistente */
             color: var(--light-text);
             text-align: center;
         }
@@ -152,39 +159,38 @@
         address {
             font-style: normal;
             text-align: center;
-            margin-top: 40px; /* Más espacio por encima de la dirección */
+            margin-top: 40px; 
         }
 
         address p {
-            margin: 8px 0; /* Un poco más de espacio entre líneas */
+            margin: 8px 0; 
             font-size: 1.1em;
         }
         
         address a {
-            color: var(--primary-color); /* Color de enlace consistente */
+            color: var(--primary-color); 
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         address a:hover {
-            color: #40B8B2; /* Tono de hover */
+            color: #40B8B2; 
         }
 
         /* Estilos para el contenedor del iframe de Tally */
         .tally-form-container {
             max-width: 600px;
             margin: 0 auto;
-            padding: 20px; /* Padding interno del contenedor, no del iframe */
+            padding: 20px; 
             background-color: var(--light-grey);
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            /* Asegúrate de que el iframe se ajuste bien */
-            overflow: hidden; /* Oculta cualquier desbordamiento si el iframe no se adapta */
+            overflow: hidden; 
         }
 
         .tally-form-container iframe {
-            display: block; /* Elimina cualquier espacio extra debajo del iframe */
-            border: none; /* Quita el borde por defecto del iframe */
+            display: block; 
+            border: none; 
         }
 
         footer {
@@ -203,32 +209,55 @@
 
         /* Media Queries */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.2em; }
-            header p { font-size: 1em; }
-            nav ul { flex-direction: column; }
-            nav ul li { margin: 5px 0; }
-            .container { width: 95%; margin: 20px auto; padding: 15px; }
+            header p {
+                font-size: 1em;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+            .container { 
+                width: 95%; 
+                margin: 20px auto; 
+                padding: 15px; 
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más sutil en móviles */
+            }
             section { padding: 30px 0; }
-            h2, h3 { font-size: 1.8em; }
-            .contact-section h2 { font-size: 2.5em; } /* Ajuste para tablets */
+            h2, h3 { font-size: 2em; } /* Ajuste para tablets */
+            h2::after, h3::after { width: 70px; }
+            .contact-section h2 { font-size: 2em; } /* Ajuste para tablets */
             .contact-section h2::after { width: 70px; }
-            .contact-section .intro-text { font-size: 1.1em; margin-bottom: 30px; }
-            .tally-form-container { padding: 15px; } /* Ajusta padding para móviles */
+            .contact-section .intro-text { font-size: 1em; margin-bottom: 30px; }
+            .tally-form-container { padding: 15px; }
+            /* Ajuste de sombra en pantallas más pequeñas si es necesario */
+            header img {
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Sombra un poco más sutil */
+            }
         }
         @media (max-width: 480px) {
-            header h1 { font-size: 1.8em; }
-            header p { font-size: 0.9em; }
-            h2, h3 { font-size: 1.6em; }
-            .contact-section h2 { font-size: 2.2em; } /* Ajuste para móviles */
+            header p {
+                font-size: 0.9em;
+            }
+            h2, h3 { font-size: 1.8em; } /* Ajuste para móviles */
+            h2::after, h3::after { width: 60px; }
+            .contact-section h2 { font-size: 1.8em; } /* Ajuste para móviles */
             .contact-section h2::after { width: 60px; }
-            .contact-section .intro-text { font-size: 1em; margin-bottom: 25px; }
-            .tally-form-container { padding: 10px; } /* Ajusta padding para móviles */
+            .contact-section .intro-text { font-size: 0.95em; margin-bottom: 25px; }
+            .tally-form-container { padding: 10px; }
+            /* Ajuste de sombra en pantallas muy pequeñas si es necesario */
+            header img {
+                box-shadow: none; /* Podrías quitar la sombra si quieres en móviles muy pequeños */
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>SoloCambiosJP</h1>
+        <a href="index.html">
+            <img src="fotos/banner.jpg" alt="SoloCambiosJP" style="max-width: 100%; height: auto; display: block;">
+        </a>
         <p>Tu Referencia del Dólar en Venezuela</p>
     </header>
 
@@ -253,7 +282,7 @@
             <address>
                 <p>También puedes encontrarnos en:</p>
                 <p>Email: <a href="mailto:solocambiosonline@gmail.com">solocambiosonline@gmail.com</a></p>
-                </address>
+            </address>
         </section>
     </div>
 
